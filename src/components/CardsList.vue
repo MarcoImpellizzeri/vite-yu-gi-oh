@@ -24,13 +24,13 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 gy-4">
             <div class="col" v-for="card in cards" :key="card.id">
                 <div class="card">
-                    <img :src="card." class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
+                    <img :src="card.card_images[0].image_url" class="card-img-top" alt="card img">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ card.name }}</h5>
+                        <p class="card-text">{{ card.archetype }}</p>
                     </div>
                 </div>
             </div>
