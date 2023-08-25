@@ -1,10 +1,12 @@
 <script>
 import axios from 'axios';
+import { store } from '../store'
 
 export default {
     data() {
         return {
-            namesOptions: []
+            namesOptions: [],
+            store,
         }
     },
     methods: {
@@ -24,9 +26,8 @@ export default {
 
 <template>
     <div class="container">
-        <select class="form-select my-5">
-            <option>Selezione l'archetipo</option>
-            <option v-for="(nameOption, i) in namesOptions" :key="`'option'${i}`">
+        <select class="form-select my-5" v-model="store.archetypeSelected">
+            <option v-for="(nameOption, i) in namesOptions" :key="`'nameOption'${i}`" :value="nameOption.archetype_name">
                 {{ nameOption.archetype_name }}
             </option>
         </select>
@@ -35,10 +36,12 @@ export default {
 
 <style lang="scss" scoped>
 .form-select {
-    width: 20%;
+    width: 0;
+    min-width: 300px;
     background-color: black;
     color: white;
     border: 0;
     box-shadow: none;
+    padding: .7rem;
 }
 </style>
